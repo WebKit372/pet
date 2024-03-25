@@ -1,0 +1,40 @@
+interface Servises {
+    shortName: string,
+    id: number,
+    serviceCode: number,
+    statusCode: "error"|"inProccess"|"Done",
+    fullName: string,
+    prodVersion: string,
+    prodTest: string,
+    dateUpdate: string,
+    changes: Array<string>,
+    rdk: number,
+    prodUpdate: number,
+    kurator: string,
+    trackerLink: string
+
+}
+const usluga : Servises = {
+        id: 0,
+        shortName: "Разрешения на ввод в эксплуатацию аэропортов",
+        serviceCode: 60016383,
+        prodVersion: "1.0.0",
+        statusCode: "Done",
+        fullName: "Разрешения на ввод в эксплуатацию аэропортов",
+        prodTest: "1.0.0",
+        dateUpdate: "12.04.24",
+        changes: ["обновлён экран оплаты", "добавлена карточка куратора"],
+        rdk: 4030484,
+        prodUpdate: 5030484,
+        kurator: "Иванов Иван Иванович",
+        trackerLink: "https://tracker.red-soft.ru/issues/160989"      
+}
+const uslugi = [
+    usluga,
+    usluga,
+    usluga,
+    usluga,
+    usluga,
+    usluga,
+]
+export default uslugi
