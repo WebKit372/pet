@@ -1,6 +1,6 @@
 <script setup>
-import Service from './Service/Service.vue';
-import uslugi from '../../utils/Services'
+import Service from './Service.vue';
+import uslugi from '../../utils/Services';
 const props = defineProps({
   services: Array,
 })
@@ -11,7 +11,7 @@ const srv = {
 }
 </script>
 <template>
-    <ul class="bg-white text-center rounded-2xl pt-5 max-w-5xl w-full">
+    <ul class="bg-white text-center rounded-2xl pt-5 max-w-5xl w-full mt-5">
         <li class="font-semibold  border-slate-300 border-b pt-6 pb-10">
         <Service :srv="srv"/>
         </li>

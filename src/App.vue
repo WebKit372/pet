@@ -7,6 +7,8 @@ const greeting = "Услуги Росавиации"
 <template>
   <div class="main p-20 flex flex-col items-center">
     <Title :title="greeting"/>
-    <ServiceList class="mt-5"/>
-  </div>
+    <RouterLink to="/test">Go to test</RouterLink>
+    <RouterLink to="/1">Go to 1</RouterLink>
+    <RouterView/>
+  </div> 
 </template>
