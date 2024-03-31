@@ -4,8 +4,13 @@ import ServiceList from './components/ServiceList/ServiceList.vue';
 import ServiceFullInfo from './components/ServiceFullInfo.vue';
  
 const routes = [
-    { path: '/1', component: ServiceList },
-    { path: '/test', component: ServiceFullInfo}
+    { path: '/', component: ServiceList },
+    {
+        name: 'service',
+        path: '/service/:code',
+        component: ServiceFullInfo,
+        props: true 
+    }
 ]
 const router = createRouter({
     history: createWebHistory(),

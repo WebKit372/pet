@@ -1,11 +1,12 @@
 <script setup>
 import Service from './Service.vue';
 import uslugi from '../../utils/Services';
+import { RouterLink } from 'vue-router';
 const props = defineProps({
-  services: Array,
-})
+  srv: Object,
+});           
 const srv = {
-    "shortName": "Сокращённое наименование",
+    "shortName": "Сокращённое наименование",  
     "serviceCode": "Сервисный код",
     "statusCode": "Статус" 
 }
@@ -16,7 +17,9 @@ const srv = {
         <Service :srv="srv"/>
         </li>
         <li  v-for="(item) in uslugi" class="border-solid border-slate-300 border-b py-4 ease-in-out duration-300  hover:bg-gray-300 last-of-type:rounded-b-2xl cursor-pointer">
-            <Service :srv="item"/>
+            <RouterLink :to="{name: 'service', params: {code : item.serviceCode } }">
+                <Service :srv="item"/>
+            </RouterLink>
         </li>
     </ul>
 </template>

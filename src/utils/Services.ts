@@ -31,7 +31,7 @@ const usluga : Servises = {
 const uslugaInProccess : Servises ={
     id: 0,
     shortName: "Разрешения на ввод в эксплуатацию аэропортов",
-    serviceCode: 60016383,
+    serviceCode: 60016382,
     prodVersion: "1.0.0",
     statusCode: "inProccess",
     fullName: "Разрешения на ввод в эксплуатацию аэропортов",
@@ -46,7 +46,7 @@ const uslugaInProccess : Servises ={
 const uslugaError : Servises ={
     id: 0,
     shortName: "Разрешения на ввод в эксплуатацию аэропортов",
-    serviceCode: 60016383,
+    serviceCode: 60016384,
     prodVersion: "1.0.0",
     statusCode: "Error",
     fullName: "Разрешения на ввод в эксплуатацию аэропортов",

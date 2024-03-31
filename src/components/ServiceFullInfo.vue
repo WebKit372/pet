@@ -1,11 +1,13 @@
-<script setup>
+<script setup lang="ts">
+import { useRoute } from 'vue-router'
 import ComponentInfo from './ComponentInfo.vue';
-const props = defineProps({
-  usluga: Object
-})
-const comp = {
+import Service from '../utils/Services';
+const route = useRoute();
+const serviceCode: number = route.params.code * 1;
+const usluga = Service.find( (e) => e.serviceCode === serviceCode)
+const shortInfo = {
     type: "ShortInfo",
-    values: [{"k":"qwe"}]
+    values: {"first":usluga.shortName,"second": usluga.serviceCode,"third": usluga.statusCode}
 }
 const pop = {
     type: "qweqwe",
@@ -13,11 +15,9 @@ const pop = {
 }
 </script>
 <template>
-    <div class="bg-white text-center rounded-2xl pt-5 max-w-5xl w-full mt-5">
-        <ComponentInfo :component="comp"/>
-        <ComponentInfo :component="comp"/>
-        <ComponentInfo :component="comp"/>
-        <ComponentInfo :component="comp"/>
+        <ComponentInfo :component="shortInfo"/>
+        <ComponentInfo :component="shortInfo"/>
+        <ComponentInfo :component="shortInfo"/>
+        <ComponentInfo :component="shortInfo"/>
         <ComponentInfo :component="pop"/>
-    </div>
 </template>
