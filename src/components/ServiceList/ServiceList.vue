@@ -17,7 +17,7 @@ const srv = {
         <Service :srv="srv"/>
         </li>
         <li  v-for="(item) in uslugi" class="border-solid border-slate-300 border-b py-4 ease-in-out duration-300  hover:bg-gray-300 last-of-type:rounded-b-2xl cursor-pointer">
-            <RouterLink :to="{name: 'service', params: {code : item.serviceCode } }">
+            <RouterLink :to="`/service/${item.serviceCode}`">
                 <Service :srv="item"/>
             </RouterLink>
         </li>

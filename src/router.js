@@ -9,7 +9,6 @@ const routes = [
         name: 'service',
         path: '/service/:code',
         component: ServiceFullInfo,
-        props: true 
     }
 ]
 const router = createRouter({

@@ -3,12 +3,12 @@ interface Component {
     type: "ShortInfo"| "FullName"| "Version" | "Changes" | "RKD" | "Curator",
     values: object,
 }
-defineProps<{
+const props = defineProps<{
     component: Component
 }>()
 </script>
 <template>
-  <div class="bg-white text-center rounded-2xl py-5 max-w-5xl w-full mt-5">
+  <div class="bg-white rounded-2xl py-5 max-w-5xl w-full mt-5" :class="`${component.type === 'FullName'? '' : 'text-center'}`">
         <div v-if="component.type === 'ShortInfo'" class="flex flex-col">
             <div class="flex flex-row content-between">
                 <h3 class="w-full font-semibold">Краткое наименование</h3>
@@ -46,9 +46,9 @@ defineProps<{
               </div>  
             </div>
         </div>
-        <div v-else class="flex flex-row content-between">
-            <h3 class="w-full">Статус</h3>
-            <h3 class="w-full">Статус</h3>
+        <div v-else-if="component.type === 'FullName'" class="flex flex-col pl-5">
+            <h3 class="font-semibold w-full mb-3">Полное наименование</h3>
+            <p>qweddd</p>
         </div>
     </div>
 </template>
