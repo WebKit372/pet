@@ -15,7 +15,7 @@ interface Servises {
 }
 const usluga : Servises = {
         id: 0,
-        shortName: "Разрешения на ввод в эксплуатацию аэропортов",
+        shortName: "Разрешения",
         serviceCode: 60016383,
         prodVersion: "1.0.0",
         statusCode: "Done",
@@ -31,7 +31,7 @@ const usluga : Servises = {
 const uslugaInProccess : Servises ={
     id: 0,
     shortName: "Разрешения на ввод в эксплуатацию аэропортов",
-    serviceCode: 60016382,
+    serviceCode: 12312311,
     prodVersion: "1.0.0",
     statusCode: "inProccess",
     fullName: "Разрешения на ввод в эксплуатацию аэропортов",
@@ -46,12 +46,12 @@ const uslugaInProccess : Servises ={
 const uslugaError : Servises ={
     id: 0,
     shortName: "Разрешения на ввод в эксплуатацию аэропортов",
-    serviceCode: 60016384,
+    serviceCode: 1124124124124,
     prodVersion: "1.0.0",
     statusCode: "Error",
     fullName: "Разрешения на ввод в эксплуатацию аэропортов",
     prodTest: "1.0.0",
-    dateUpdate: "12.04.24",
+    dateUpdate: "12.04.27",
     changes: ["обновлён экран оплаты", "добавлена карточка куратора"],
     rdk: 4030484,
     prodUpdate: 5030484,

@@ -8,7 +8,7 @@ const props = defineProps<{
 }>()
 </script>
 <template>
-  <div class="bg-white rounded-2xl py-5 max-w-5xl w-full mt-5" :class="`${component.type === 'FullName'? '' : 'text-center'}`">
+  <div class="bg-white rounded-2xl p-5 max-w-5xl w-full mt-5" :class="`${component.type === 'FullName'? '' : 'text-center'}`">
         <div v-if="component.type === 'ShortInfo'" class="flex flex-col">
             <div class="flex flex-row content-between">
                 <h3 class="w-full font-semibold">Краткое наименование</h3>
@@ -46,9 +46,33 @@ const props = defineProps<{
               </div>  
             </div>
         </div>
-        <div v-else-if="component.type === 'FullName'" class="flex flex-col pl-5">
-            <h3 class="font-semibold w-full mb-3">Полное наименование</h3>
-            <p>qweddd</p>
+        <div v-else-if="component.type === 'FullName'" class="flex flex-col">
+            <h3 class="font-semibold w-full mb-2">Полное наименование</h3>
+            <p>{{component.values["fullName"]}}</p>
+        </div>
+        <div v-else-if="component.type === 'Version'" class="flex flex-col ">
+          <div class="flex flex-row content-between">
+            <h3 class="w-full font-semibold">Версия на проде</h3>
+            <h3 class="w-full font-semibold">Версия в тесте</h3>
+            <h3 class="w-full font-semibold">Дата обновления прода</h3>
+          </div>
+          <div class="flex justify-between">
+              <h3 class="w-full">{{ component.values['prodVersion'] }}</h3>
+              <h3 class="w-full">{{ component.values['prodTest']  }}</h3>
+              <h3 class="w-full">{{ component.values['dateUpdate']  }}</h3>
+          </div>
+        </div>
+        <div v-else-if="component.type === 'RKD'" class="flex flex-col ">
+          <div class="flex flex-row content-between">
+            <h3 class="w-full font-semibold">Номер заявки на РДК</h3>
+            <h3 class="w-full font-semibold">Номер заявки на обновление прода</h3>
+            <h3 class="w-full font-semibold">Дата обновления прода</h3>
+          </div>
+          <div class="flex justify-between">
+              <h3 class="w-full">{{ component.values['rdk'] }}</h3>
+              <h3 class="w-full">{{ component.values['prodUpdate']  }}</h3>
+              <h3 class="w-full">{{ component.values['dateUpdate']  }}</h3>
+          </div>
         </div>
     </div>
 </template>

@@ -15,17 +15,20 @@ const shortInfo: Component = {
 }
 const FullName: Component = {
     type: "FullName",
-    values: {"fullName": 'qwoijqwoifjqwoifjqwoifjqiwo'}
+    values: {"fullName":usluga!.fullName}
 }
-const pop: Component = {
-    type: "ShortInfo",
-    values: {"k":"qwe"}
+const Changes: Component = {
+    type: "Version",
+    values: {"prodVersion":usluga!.prodVersion, "prodTest":usluga!.prodTest, "dateUpdate": usluga!.dateUpdate}
+}
+const RKD: Component = {
+    type: "RKD",
+    values: {"rdk":usluga!.rdk, "prodUpdate":usluga!.prodUpdate, "dateUpdate": usluga!.dateUpdate}
 }
 </script>
 <template>
         <ComponentInfo :component="shortInfo"/>
         <ComponentInfo :component="FullName"/>
-        <ComponentInfo :component="shortInfo"/>
-        <ComponentInfo :component="shortInfo"/>
-        <ComponentInfo :component="pop"/>
+        <ComponentInfo :component="Changes"/>
+        <ComponentInfo :component="RKD"/>
 </template>
