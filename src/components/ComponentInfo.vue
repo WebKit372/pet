@@ -47,8 +47,8 @@ const props = defineProps<{
             </div>
         </div>
         <div v-else-if="component.type === 'FullName'" class="flex flex-col">
-            <h3 class="font-semibold w-full mb-2">Полное наименование</h3>
-            <p>{{component.values["fullName"]}}</p>
+            <h3 class="font-semibold mb-2 w-full text-center">Полное наименование</h3>
+            <p class="text-center">{{component.values["fullName"]}}</p>
         </div>
         <div v-else-if="component.type === 'Version'" class="flex flex-col ">
           <div class="flex flex-row content-between">
@@ -73,6 +73,12 @@ const props = defineProps<{
               <h3 class="w-full">{{ component.values['prodUpdate']  }}</h3>
               <h3 class="w-full">{{ component.values['dateUpdate']  }}</h3>
           </div>
+        </div>
+        <div v-else-if="component.type === 'Changes'" class="flex flex-col">
+            <h3 class="font-semibold mb-2 w-full">Список изменений</h3>
+            <div class="flex gap-5 justify-center">
+              <li class="list-none italic" v-for="(change) in component.values['changes']">{{change}}</li>
+            </div>
         </div>
     </div>
 </template>
