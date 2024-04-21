@@ -29,6 +29,11 @@ const Changes: Component = {
     type: "Changes",
     values: {"changes":usluga!.changes}
 }
+const emit = defineEmits(['response'])
+emit(
+    'response',
+    usluga?.shortName
+)
 </script>
 <template>
         <ComponentInfo :component="shortInfo"/>

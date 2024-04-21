@@ -1,5 +1,5 @@
 import { createWebHistory, createRouter } from 'vue-router'
-
+import History from './components/History.vue'
 import ServiceList from './components/ServiceList/ServiceList.vue';
 import ServiceFullInfo from './components/ServiceFullInfo.vue';
  
@@ -9,7 +9,11 @@ const routes = [
         name: 'service',
         path: '/service/:code',
         component: ServiceFullInfo,
-    }
+    },
+    { 
+        path: '/history',
+        component: History
+    }   
 ]
 const router = createRouter({
     history: createWebHistory(),
