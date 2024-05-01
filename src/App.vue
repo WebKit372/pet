@@ -1,13 +1,13 @@
-<script setup>
-import { ref, watch } from 'vue';
+<script setup lang="ts">
+import { Ref, ref, watch } from 'vue';
 import Title from './components/Title.vue';
-const greeting = ref("Услуги Росавиации")
 import { useRoute, useRouter } from 'vue-router';
+const greeting : Ref<string> = ref("Услуги Росавиации")
 const route = useRoute();
 const router = useRouter();
 const back = ref(false);
 const history = ref(false);
-watch(route, (to , from) => {
+watch(route, (to, from) => {
     if(!from.path.split('/')[1]){
       back.value = false;
       history.value = false;

@@ -1,84 +1,69 @@
 <script setup lang="ts">
-interface Component {
-    type: "ShortInfo"| "FullName"| "Version" | "Changes" | "RKD" | "Curator",
-    values: object,
-}
+import cardHeaders from '../utils/Interfaces';
 const props = defineProps<{
-    component: Component
+    serviceInfo: Object
+    cardType: String
 }>()
+const serviceInfo = props.value.cardInfo
+let cardBody: String||Number||String[] [];
+if props.value.cardType === 'shortInfo' {
+  cardBody = [serviceInfo!.shortName, serviceInfo.serviceCode, serviceInfo.statusCode]
+}
 </script>
 <template>
-  <div class="bg-white rounded-2xl p-5 max-w-5xl w-full mt-5" :class="`${component.type === 'FullName'? '' : 'text-center'}`">
-        <div v-if="component.type === 'ShortInfo'" class="flex flex-col">
+  <div class="bg-white rounded-2xl p-5 max-w-5xl w-full mt-5" :class="`${cardInfo.type === 'FullName'? '' : 'text-center'}`">
+        <table v-if="cardInfo.type === 'ShortInfo'" class="flex flex-col">
             <div class="flex flex-row content-between">
-                <h3 class="w-full font-semibold">Краткое наименование</h3>
-                <h3 class="w-full font-semibold">Сервисный код</h3>
-                <h3 class="w-full font-semibold">Статус</h3>
+                <th class="w-full font-semibold">Краткое наименование</th>
+                <th class="w-full font-semibold">Сервисный код</th>
+                <th class="w-full font-semibold">Статус</th>
             </div>
             <div class="flex justify-between">
-              <h3 class="w-full">{{ component.values['first'] }}</h3>
-              <h3 class="w-full">{{ component.values['second']  }}</h3>
-              <div class="flex p-auto w-full justify-center">
-                <h3 
-                class="
-                  text-nowrap
-                  w-2/5
-                  text-left
-                  relative
-                  before:top-2
-                  before:left-20
-                  before:rounded-full
-                  before:inline-block
-                  before:mr-2
-                  before:h-3
-                  before:w-3"
-                  :class="{
-                    'before:bg-lime-500':component.values['third'] ==='Done',
-                    'before:bg-yellow-300':component.values['third'] ==='inProccess',
-                    'before:bg-red-300':component.values['third'] ==='Error'}">
-                    {{ component.values['third'] ==='Done'?
-                    'В продуктиве' :
-                    component.values['third']==='inProccess'?
-                    'В разработке':
-                    'Имеются ошибки'
-                    }}
-                </h3>
-              </div>  
+              <tr class="w-full">{{ cardInfo.values['first'] }}</tr>
+              <tr class="w-full">{{ cardInfo.values['second']  }}</tr>
+
+              <tr class="flex p-auto w-full justify-center items-center gap-2">
+              <div class="rounded-full h-3 w-3 flex justify-end" :class="{'bg-lime-500':cardInfo.values['third']==='Done', 'bg-yellow-300':cardInfo.values['third']==='inProccess', 'bg-red-300':cardInfo.values['third']==='Error'}"></div>
+              <p 
+              class="text-nowrap w-2/5 text-left">
+                {{ cardInfo.values['third']==='Done'? 'В продуктиве' : cardInfo.values['third']==='inProccess'? 'В разработке': 'Имеются ошибки'}}
+            </p>   
+            </tr>
             </div>
-        </div>
-        <div v-else-if="component.type === 'FullName'" class="flex flex-col">
-            <h3 class="font-semibold mb-2 w-full text-center">Полное наименование</h3>
-            <p class="text-center">{{component.values["fullName"]}}</p>
-        </div>
-        <div v-else-if="component.type === 'Version'" class="flex flex-col ">
+        </table>
+        <table v-else-if="cardInfo.type === 'FullName'" class="flex flex-col">
+            <th class="font-semibold mb-2 w-full text-center">Полное наименование</th>
+            <tr class="text-center">{{cardInfo.values["fullName"]}}</tr>
+        </table>
+        <table v-else-if="cardInfo.type === 'Version'" class="flex flex-col ">
           <div class="flex flex-row content-between">
-            <h3 class="w-full font-semibold">Версия на проде</h3>
-            <h3 class="w-full font-semibold">Версия в тесте</h3>
-            <h3 class="w-full font-semibold">Дата обновления прода</h3>
+            <th class="w-full font-semibold">Версия на проде</th>
+            <th class="w-full font-semibold">Версия в тесте</th>
+            <th class="w-full font-semibold">Дата обновления прода</th>
           </div>
           <div class="flex justify-between">
-              <h3 class="w-full">{{ component.values['prodVersion'] }}</h3>
-              <h3 class="w-full">{{ component.values['prodTest']  }}</h3>
-              <h3 class="w-full">{{ component.values['dateUpdate']  }}</h3>
+              <tr class="w-full">{{ cardInfo.values['prodVersion'] }}</tr>
+              <tr class="w-full">{{ cardInfo.values['prodTest']  }}</tr>
+              <tr class="w-full">{{ cardInfo.values['dateUpdate']  }}</tr>
           </div>
-        </div>
-        <div v-else-if="component.type === 'RKD'" class="flex flex-col ">
+        </table>
+        <table v-else-if="cardInfo.type === 'RKD'" class="flex flex-col ">
           <div class="flex flex-row content-between">
-            <h3 class="w-full font-semibold">Номер заявки на РДК</h3>
-            <h3 class="w-full font-semibold">Номер заявки на обновление прода</h3>
-            <h3 class="w-full font-semibold">Дата обновления прода</h3>
+            <th class="w-full font-semibold">Номер заявки на РДК</th>
+            <th class="w-full font-semibold">Номер заявки на обновление прода</th>
+            <th class="w-full font-semibold">Дата обновления прода</th>
           </div>
           <div class="flex justify-between">
-              <h3 class="w-full">{{ component.values['rdk'] }}</h3>
-              <h3 class="w-full">{{ component.values['prodUpdate']  }}</h3>
-              <h3 class="w-full">{{ component.values['dateUpdate']  }}</h3>
+              <tr class="w-full">{{ cardInfo.values['rdk'] }}</tr>
+              <tr class="w-full">{{ cardInfo.values['prodUpdate']  }}</tr>
+              <tr class="w-full">{{ cardInfo.values['dateUpdate']  }}</tr>
           </div>
-        </div>
-        <div v-else-if="component.type === 'Changes'" class="flex flex-col">
-            <h3 class="font-semibold mb-2 w-full">Список изменений</h3>
-            <div class="flex gap-5 justify-center">
-              <li class="list-none italic" v-for="(change) in component.values['changes']">{{change}}</li>
-            </div>
-        </div>
+        </table>
+        <table v-else-if="cardInfo.type === 'Changes'" class="flex flex-col">
+            <th class="font-semibold mb-2 w-full">Список изменений</th>
+            <ul class="flex gap-5 justify-center">
+              <li class="list-none italic" v-for="(change) in cardInfo.values['changes']">{{change}}</li>
+            </ul>
+        </table>
     </div>
 </template>
