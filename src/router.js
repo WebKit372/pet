@@ -1,5 +1,5 @@
 import { createWebHistory, createRouter } from 'vue-router'
-import History from './components/History.vue'
+import History from './components/HistoryElement.vue'
 import ServiceList from './components/ServiceList/ServiceList.vue';
 import ServiceFullInfo from './components/ServiceFullInfo.vue';
  

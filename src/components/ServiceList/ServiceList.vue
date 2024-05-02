@@ -1,17 +1,12 @@
-<script setup>
-import Service from './Service.vue';
-import uslugi from '../../utils/Services';
-import { RouterLink } from 'vue-router';
-const props = defineProps({
-  srv: Object,
-});           
-const srv = {
+<script setup lang="ts">
+import Service from './ServiceElement.vue';
+import uslugi from '../../utils/Services';          
+const srv:Object= {
     "shortName": "Сокращённое наименование",  
     "serviceCode": "Сервисный код",
     "statusCode": "Статус" 
 }
-import { useRoute, useRouter } from 'vue-router';
-const route = useRoute();
+import { useRouter } from 'vue-router';
 const router = useRouter();
 function toService(item){
     router.push(`/service/${item.serviceCode}`)
@@ -22,7 +17,7 @@ function toService(item){
         <li class="font-semibold  border-slate-300 border-b pt-6 pb-10">
         <Service :srv="srv"/>
         </li>
-        <li  v-for="(item) in uslugi" @click="toService(item)" class="border-solid border-slate-300 border-b py-4 ease-in-out duration-300  hover:bg-gray-300 last-of-type:border-none cursor-pointer">
+        <li  v-for="(item) in uslugi" :key="item.serviceCode" @click="toService(item)" class="border-solid border-slate-300 border-b py-4 ease-in-out duration-300  hover:bg-gray-300 last-of-type:border-none cursor-pointer">
             <Service :srv="item"/>
         </li>
     </ul>
