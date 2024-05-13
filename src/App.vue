@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Ref, ref, watch } from 'vue';
-import Title from './components/Title.vue';
+import Title from './components/TitleComponent.vue';
 import { useRoute, useRouter } from 'vue-router';
 const greeting : Ref<string> = ref("Услуги Росавиации")
 const route = useRoute();

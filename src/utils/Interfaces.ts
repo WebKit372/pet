@@ -13,4 +13,9 @@ interface Servises {
   kurator: string,
   trackerLink: string
 }
-export {Servises};
+interface tableTitlesInterface {
+  shortName: string,
+  serviceCode: string,
+  statusCode: string
+}
+export {Servises,tableTitlesInterface};

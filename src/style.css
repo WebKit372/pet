@@ -28,7 +28,3 @@
     -webkit-border-horizontal-spacing: 0;
     -webkit-border-vertical-spacing: 0;
 }
-.clear-user-agent-styles th,
-.clear-user-agent-styles td {
-    display: inline;
-}

@@ -1,7 +1,7 @@
 import { createWebHistory, createRouter } from 'vue-router'
 import History from './components/HistoryElement.vue'
-import ServiceList from './components/ServiceList/ServiceList.vue';
-import ServiceFullInfo from './components/ServiceFullInfo.vue';
+import ServiceList from './components/ServiceList/ServiceListComponent.vue';
+import ServiceFullInfo from './components/ServiceFullInfoComponent.vue';
  
 const routes = [
     { path: '/', component: ServiceList },

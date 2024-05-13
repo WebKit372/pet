@@ -10,6 +10,7 @@
     "lint": "yarn run eslint"
   },
   "dependencies": {
+    "@babel/core": "^7.24.5",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
   },
